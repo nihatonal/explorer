@@ -10,6 +10,16 @@
   align-items: center;
   justify-content: space-between;
 }
+@media only screen and (max-width: 767px) {
+  .header {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+  }
+  .main_header {
+    height: 50px;
+  }
+}
 .hide-navlinks {
   right: -100%;
 }

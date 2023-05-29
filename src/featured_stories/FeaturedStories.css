@@ -45,3 +45,17 @@
   width: 960px;
   display: flex;
 }
+@media only screen and (max-width: 767px) {
+  .featured_container {
+    height: auto;
+  }
+  .featured_wrapper {
+    padding: 40px 0 20px;
+  }
+  .featured_stories_items_wrapper {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
