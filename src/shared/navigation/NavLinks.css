@@ -1,0 +1,34 @@
+.navbar {
+  width: 940px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: all 750ms;
+  padding: 0 186px;
+}
+@media only screen and (max-width: 767px) {
+  .navbar {
+    display: none;
+  }
+}
+
+.nav-item {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 14px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+}
+.nav-item:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.active-nav-item {
+  border-color: rgba(255, 255, 255, 0.3);
+}
