@@ -3,7 +3,8 @@ import './App.css';
 
 import MainNavigation from './shared/navigation/MainNavigation'
 import Home from "./home/Home";
-
+import FeaturedStories from "./featured_stories/FeaturedStories";
+import Footer from './shared/footer/Footer'
 function App() {
   return (
     <div className="App">
@@ -14,8 +15,8 @@ function App() {
           {/* <Route exact path="/delivery/:fname" element={<Store />} />
           <Route exact path="/delivery/:fname/:pname" element={<Store />} /> */}
         </Routes>
-        {/*<Contact />
-        <Footer /> */}
+        <FeaturedStories />
+        <Footer />
       </BrowserRouter>
     </div>
   );

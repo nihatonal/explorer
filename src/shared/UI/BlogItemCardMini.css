@@ -1,0 +1,67 @@
+.blog_minicard_container {
+  width: 320px;
+  height: 295px;
+  padding: 0 10px;
+}
+@media only screen and (max-width: 810px) {
+  .blog_minicard_container {
+    width: 100%;
+  }
+}
+
+.blog_minicard_image_wrapper {
+  padding: 0 24px;
+  height: 190px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 3px;
+}
+
+.blog_minicard_image-content_wrapper {
+  color: #fff;
+  height: 94px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.blog_minicard_owner_wrapper {
+  height: 40px;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 14px;
+}
+.blog_minicard_owner_image {
+  grid-row: span 2;
+  width: 35px;
+  height: 35px;
+}
+.blog_minicard_owner_name {
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 19px;
+}
+.blog_minicard_date {
+  font-family: var(--secondary-font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  text-align: left;
+}
+.blog_minicard_title {
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  width: 300px;
+  text-align: left;
+  margin-top: 23px;
+}

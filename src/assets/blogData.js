@@ -29,6 +29,26 @@ export const blogData = [
         owner_image: require("./images/profiles/traveller_1.png"),
         type: 'Photography',
     },
+    {
+        id: "blog_4",
+        owner: "Jessica Simpson",
+        date: 'June 14, 2016',
+        title: "We found the most beautiful place for our party november",
+        text: "Vestibulum convallis ac nibh ut scelerisque. Donec ut sodales urna, eget faucibus risus. Curabitur eget nunc pretium, malesuada nisi at, vulputate ante. Mauris faucibus justo non semper tempus. Aenean sodales orci a odio vehicula, malesuada lobortis velit commodo. Aliquam dictum, lorem ut finibus vehicula, justo orci mattis magna, nec tristique nisl orci in est. Duis tempor condimentum nisl non cursus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ullamcorper, nibh at varius mattis, ligula risus euismod turpis, eget bibendum nisi arcu et tortor. Pellentesque tempor et erat vitae tincidunt. Donec bibendum at urna non fringilla. Aliquam imperdiet semper sapien, vel mollis lectus hendrerit a.",
+        image: require("./images/jessica_1.png"),
+        owner_image: require("./images/profiles/jessica.png"),
+        type: 'Photography',
+    },
+    {
+        id: "blog_5",
+        owner: "Luke Cage",
+        date: 'July 12, 2016',
+        title: "Why New York is still our favorite city to visit",
+        text: "Vestibulum convallis ac nibh ut scelerisque. Donec ut sodales urna, eget faucibus risus. Curabitur eget nunc pretium, malesuada nisi at, vulputate ante. Mauris faucibus justo non semper tempus. Aenean sodales orci a odio vehicula, malesuada lobortis velit commodo. Aliquam dictum, lorem ut finibus vehicula, justo orci mattis magna, nec tristique nisl orci in est. Duis tempor condimentum nisl non cursus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ullamcorper, nibh at varius mattis, ligula risus euismod turpis, eget bibendum nisi arcu et tortor. Pellentesque tempor et erat vitae tincidunt. Donec bibendum at urna non fringilla. Aliquam imperdiet semper sapien, vel mollis lectus hendrerit a.",
+        image: require("./images/luke.png"),
+        owner_image: require("./images/profiles/traveller_1.png"),
+        type: 'Travel',
+    },
 
 
 ];

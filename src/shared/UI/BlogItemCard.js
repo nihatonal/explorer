@@ -1,14 +1,9 @@
 import React from 'react';
 
-
 import { HiArrowLongRight } from 'react-icons/hi2';
-import Profile from '../../assets/images/profiles/traveller_1.svg';
-import BG from '../../assets/images/travel_1.svg'
 import './BlogItemCard.css';
 
 function BlogItemCard(props) {
-
-    const text = 'In vestibulum convallis odio, sed tincidunt leo lacinia non. Maecenas nec gravida ligula, ac fermentum dolor. Aenean imperdiet, risus sed ornare cursus, ex justo egestas tortor, quis hendrerit risus lectus vitae risus. Donec iaculis metus nisl, at finibus tortor posuere vitae. Ut et feugiat odio, condimentum dapibus ex. Pellentesque ut nibh quam. Nulla facilisi. Vestibulum sit amet ligula lectus. Nulla facilisi. Suspendisse sit amet nisi eu magna maximus vehicula eu ut justo. Nullam at odio quam. In commodo lacinia diam, sit amet eleifend elit ultrices sit amet. Nam quis metus mauris. Quisque leo velit, sodales tempus elit sit amet, volutpat finibus est. Mauris in iaculis felis, ut dignissim lorem. Nam porta finibus diam et tristique.';
 
     return (
         <div className="blog_card_container">

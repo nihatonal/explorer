@@ -11,7 +11,7 @@ function Home(props) {
             style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bg_image})` }}
         >
             <div className="home-wrapper">
-                {blogData.map((blog) => <BlogItemCard
+                {blogData.slice(0, 3).map((blog) => <BlogItemCard
                     bg_image={blog.image}
                     blog_type={blog.type}
                     blog_owner_image={blog.owner_image}
@@ -24,7 +24,7 @@ function Home(props) {
                 <div className="home_footer">
                     <div className="home_footer_wrapper">
                         <p>Want to read more?</p>
-                        <NavLink className="home_read_more">
+                        <NavLink to='/' className="home_read_more">
                             Visit Blog Archive
                         </NavLink>
                     </div>
