@@ -8,7 +8,6 @@
   }
 }
 .blog_card_image_wrapper {
-  padding: 0 60px;
   height: 330px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,11 +16,7 @@
   display: flex;
   align-items: flex-end;
 }
-@media only screen and (max-width: 767px) {
-  .blog_card_image_wrapper {
-    padding: 0 20px;
-  }
-}
+
 .blog_card_type {
   position: absolute;
   top: 20px;
@@ -110,7 +105,6 @@
 
 .blog_card_desc_wrapper {
   height: 180px;
-  padding: 0 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,7 +121,6 @@
 @media only screen and (max-width: 767px) {
   .blog_card_desc_wrapper {
     height: 180px;
-    padding: 0 20px;
   }
   .blog_card_desc {
     font-size: 14px;

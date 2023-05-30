@@ -6,11 +6,11 @@
 @media only screen and (max-width: 810px) {
   .blog_minicard_container {
     width: 100%;
+    padding: 0;
   }
 }
 
 .blog_minicard_image_wrapper {
-  padding: 0 24px;
   height: 190px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,7 +20,11 @@
   align-items: flex-end;
   border-radius: 3px;
 }
-
+@media only screen and (max-width: 810px) {
+  .blog_minicard_image_wrapper {
+    border-radius: 0;
+  }
+}
 .blog_minicard_image-content_wrapper {
   color: #fff;
   height: 94px;
@@ -64,4 +68,12 @@
   width: 300px;
   text-align: left;
   margin-top: 23px;
+}
+@media only screen and (max-width: 810px) {
+  .blog_minicard_title {
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 20px;
+    padding-left: 24px;
+  }
 }

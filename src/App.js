@@ -3,6 +3,7 @@ import './App.css';
 
 import MainNavigation from './shared/navigation/MainNavigation'
 import Home from "./home/Home";
+import AboutUs from "./aboutus/AboutUs";
 import FeaturedStories from "./featured_stories/FeaturedStories";
 import Footer from './shared/footer/Footer'
 function App() {
@@ -12,8 +13,8 @@ function App() {
         <MainNavigation />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          {/* <Route exact path="/delivery/:fname" element={<Store />} />
-          <Route exact path="/delivery/:fname/:pname" element={<Store />} /> */}
+          <Route exact path="/aboutus" element={<AboutUs />} />
+          {/*  <Route exact path="/delivery/:fname/:pname" element={<Store />} /> */}
         </Routes>
         <FeaturedStories />
         <Footer />

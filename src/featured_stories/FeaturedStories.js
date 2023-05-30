@@ -14,8 +14,8 @@ function FeaturedStories(props) {
     return (
         <div className='featured_container'>
             <div className="featured_wrapper">
-                <h3 className="featured_title">Featured Stories</h3>
-                <p className="featured_subtitle">Did you read our personal favorites?</p>
+                <h3 className="section_title">Featured Stories</h3>
+                <p className="section_subtitle">Did you read our personal favorites?</p>
                 <div className="featured_stories_items_wrapper">
                     {
                         selected.map((blog) => <BlogItemCardMini

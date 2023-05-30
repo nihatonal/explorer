@@ -8,7 +8,7 @@ function BlogItemCard(props) {
     return (
         <div className="blog_card_container">
             <div className="blog_card_wrapper">
-                <div className="blog_card_image_wrapper"
+                <div className="blog_card_image_wrapper p-60"
                     style={{ backgroundImage: `url(${props.bg_image})` }}
                 >
                     <div className="blog_card_type">
@@ -23,7 +23,7 @@ function BlogItemCard(props) {
                         <p className="blog_card_title">{props.title}</p>
                     </div>
                 </div>
-                <div className="blog_card_desc_wrapper">
+                <div className="blog_card_desc_wrapper p-60">
                     <p className="blog_card_desc">
                         {props.desc.slice(0, 255)}...
                     </p>

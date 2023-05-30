@@ -1,0 +1,97 @@
+.about_us_wrapper {
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about_us_wrapper .blog_card_desc {
+  text-align: center;
+}
+.about_us_wrapper .section_subtitle {
+  margin: 15px 0 10px;
+  font-size: 16px;
+}
+.about_us_wrapper .primary_button {
+  margin: 40px 0;
+}
+@media only screen and (max-width: 767px) {
+  .about_us_wrapper {
+    padding: 40px 0;
+  }
+  .about_us_wrapper .section_subtitle {
+    margin: 15px 0 10px;
+  }
+}
+
+.about_us_image {
+  height: 200px;
+  width: 100%;
+  background-image: url("../assets/images/Map-With-Ship-World-Travel.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media only screen and (max-width: 767px) {
+  .about_us_image {
+    height: 150px;
+  }
+}
+.about_us_items_wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 25px;
+  margin: 40px 0;
+}
+
+.about_us_item_icon {
+  font-size: 72px;
+  color: var(--color-icon);
+}
+.about_us_item_title {
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 35px;
+  text-align: center;
+  color: var(--primary-color);
+}
+.about_us_item_text {
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 25px;
+  text-align: center;
+  color: var(--primary-color);
+}
+@media only screen and (max-width: 767px) {
+  .about_us_items_wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 20px;
+    margin: 40px 0;
+  }
+  .about_us_item {
+    display: grid;
+    grid-template-columns: 100px auto;
+    column-gap: 10px;
+    align-items: center;
+    justify-items: center;
+  }
+  .about_us_item_text {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    text-align: left;
+  }
+}
+
+.about_us_desc {
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 35px;
+  text-align: center;
+  color: var(--primary-color)
+}
+

@@ -6,7 +6,7 @@ function BlogItemCardMini(props) {
     return (
         <div className="blog_minicard_container">
             <div className="blog_minicard_wrapper">
-                <div className="blog_minicard_image_wrapper"
+                <div className="blog_minicard_image_wrapper p-24"
                     style={{ backgroundImage: `url(${props.bg_image})` }}
                 >
                     <div className="blog_minicard_image-content_wrapper">
