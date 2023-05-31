@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 import { HiArrowLongRight } from 'react-icons/hi2';
 import './BlogItemCard.css';
 
@@ -27,10 +27,10 @@ function BlogItemCard(props) {
                     <p className="blog_card_desc">
                         {props.desc.slice(0, 250)}...
                     </p>
-                    <div className="blog_card_button">
+                    <NavLink to={`/categories/${props.blog_type.toLowerCase()}/${props.owner}/${props.id}`} className="blog_card_button">
                         <p>Continue Reading</p>
                         <HiArrowLongRight />
-                    </div>
+                    </NavLink>
                 </div>
             </div>
         </div>

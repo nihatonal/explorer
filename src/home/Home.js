@@ -20,6 +20,7 @@ function Home(props) {
                     title={blog.title}
                     desc={blog.text}
                     key={blog.id}
+                    id={blog.id}
                 />)}
                 <div className="home_footer">
                     <div className="home_footer_wrapper">
