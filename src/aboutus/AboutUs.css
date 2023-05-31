@@ -31,6 +31,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.about_us_image:nth-last-child(2) {
+  background-image: url("../assets/images/different-nationalities-children-human-globe.jpg");
+  background-position: 0 75%;
+  margin: 40px 0;
+}
 @media only screen and (max-width: 767px) {
   .about_us_image {
     height: 150px;
@@ -92,6 +97,5 @@
   font-size: 16px;
   line-height: 35px;
   text-align: center;
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
-

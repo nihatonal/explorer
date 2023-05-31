@@ -6,6 +6,7 @@
   align-items: flex-end;
   transition: all 750ms;
   padding: 0 186px;
+  position: relative;
 }
 @media only screen and (max-width: 767px) {
   .navbar {
@@ -22,8 +23,9 @@
   letter-spacing: 1.3px;
   text-transform: uppercase;
   color: #ffffff;
-  padding-bottom: 12px;
+  padding-bottom: 6px;
   border-bottom: 2px solid rgba(255, 255, 255, 0);
+  position: relative;
 }
 .nav-item:hover {
   border-color: rgba(255, 255, 255, 0.3);
@@ -32,3 +34,5 @@
 .active-nav-item {
   border-color: rgba(255, 255, 255, 0.3);
 }
+
+

@@ -25,7 +25,7 @@ function BlogItemCard(props) {
                 </div>
                 <div className="blog_card_desc_wrapper p-60">
                     <p className="blog_card_desc">
-                        {props.desc.slice(0, 255)}...
+                        {props.desc.slice(0, 250)}...
                     </p>
                     <div className="blog_card_button">
                         <p>Continue Reading</p>

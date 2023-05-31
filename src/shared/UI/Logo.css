@@ -1,0 +1,27 @@
+.logo_wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: 400;
+  align-content: center;
+  column-gap: 4px;
+}
+.logo_item {
+  color: var(--bg_secondary);
+  text-align: left;
+  align-self: flex-end;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+}
+.logo_item:nth-last-child(1) {
+  align-self: flex-start;
+  font-size: 12px;
+}
+.logo_item:nth-last-child(3) {
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-size: 48px;
+}

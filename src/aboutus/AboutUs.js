@@ -12,18 +12,17 @@ function AboutUs(props) {
             style={{ backgroundImage: `linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(${bg_image})` }}>
             <div className="page-wrapper">
                 <div className="about_us_wrapper">
-                    <h3 className='section_title'>Travelling With Stories</h3>
+                    <h3 className='section_title'>Things Go Better With Us</h3>
                     <p className="section_subtitle">
                         We are here to share experiences each other.
-                        {/* Things go better with us */}
                     </p>
                     <p className='blog_card_desc p-60'>
-                        Traveling comes with a lot of new experiences and discoveries.
-                        You do not only discover new places and traditions, but you also get to know yourself better.
+                        Wanna make your life more interesting?<br></br> If your answer is "YES", you are in the right place.
 
-                        {/* We are all different. We were born in diffrent cities, at different times,
-                        we love different music, food, movies. But we have something that unites us all.
-                        It is our blog. We are its heart. We are not just a team, we are a family. */}
+                        {/* Traveling comes with a lot of new experiences and discoveries.
+                        You do not only discover new places and traditions, but you also get to know yourself better. */}
+
+
                     </p>
                     <NavLink to='/contactus' className='primary_button'>Contact Us</NavLink>
                     <div className="about_us_image"></div>
@@ -56,13 +55,21 @@ function AboutUs(props) {
                     </div>
                     <div className="about_us_desc_wrapper p-60">
                         <p className="about_us_desc">
-                            We created this website to explore the best interesting travelling features and experiences.
+                            We created this website to explore the best interesting stories and experiences.
                             What you have been through can guide other people, also it could inspire them to open up to the world.
                             <br></br>
                             Your story could become a legend. Maybe it's the subject of movies or books.
                             <br></br>
                             Don't be afraid to share!
                             You can create your own opportunity...
+                        </p>
+                    </div>
+                    <div className="about_us_image"></div>
+                    <div className="about_us_desc_wrapper p-60">
+                        <p className="about_us_desc">
+                            We are all different. We were born in diffrent cities, at different times,
+                            we love different music, food, movies. But we have something that unites us all.
+                            It is our blog. We are its heart. We are not just a team, we are a family.
                         </p>
                     </div>
                 </div>
