@@ -33,7 +33,7 @@ function NavLinks(props) {
             >
                 Categories
             </NavLink>
-            <NavLink
+            {/* <NavLink
                 className={({ isActive }) =>
                     isActive ? "nav-item active-nav-item" : "nav-item"
                 }
@@ -41,7 +41,7 @@ function NavLinks(props) {
                 onClick={props.closeDrawer}
             >
                 Pick category
-            </NavLink>
+            </NavLink> */}
             <NavLink
                 className={({ isActive }) =>
                     isActive ? "nav-item active-nav-item" : "nav-item"

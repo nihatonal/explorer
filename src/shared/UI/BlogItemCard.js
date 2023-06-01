@@ -1,10 +1,13 @@
 import React from 'react';
+import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 import { HiArrowLongRight } from 'react-icons/hi2';
 import './BlogItemCard.css';
 
 function BlogItemCard(props) {
-
+    const getDate = (date) => {
+        return moment(date).format("MMMM") + ' ' + moment(date).format("DD") + ', ' + moment(date).format("YYYY")
+    }
     return (
         <div className="blog_card_container">
             <div className="blog_card_wrapper">
@@ -18,7 +21,7 @@ function BlogItemCard(props) {
                         <div className="blog_card_owner_wrapper">
                             <img src={props.blog_owner_image} alt={props.blog_owner_image} className='blog_card_owner_image' />
                             <p className="blog_card_owner_name">{props.owner}</p>
-                            <p className="blog_card_date">{props.date}</p>
+                            <p className="blog_card_date">{getDate(props.date)}</p>
                         </div>
                         <p className="blog_card_title">{props.title}</p>
                     </div>

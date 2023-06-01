@@ -1,0 +1,19 @@
+.blog_wrapper {
+  height: 1500px;
+  display: grid;
+  grid-template-columns: 58% 38%;
+  column-gap: 20px;
+}
+/* .blog_left_wrapper .blog_card_container {
+  width: 100%;
+} */
+
+.blog_latest {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.single_blog_image_wrapper a {
+  display: block;
+  height: 100%;
+}

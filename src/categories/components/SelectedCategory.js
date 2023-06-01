@@ -1,10 +1,14 @@
 import React from 'react';
+import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { blogData } from '../../assets/blogData';
 import bg_image from '../../assets/images/wall.jpg';
 function SelectedCategory(props) {
     const selected_category = useParams().cname;
+    const getDate = (date) => {
+        return moment(date).format("MMMM") + ' ' + moment(date).format("DD") + ', ' + moment(date).format("YYYY")
+    }
     const selected = blogData.filter((item) => item.type.toLowerCase() === selected_category);
     console.log(selected)
     return (
@@ -25,7 +29,7 @@ function SelectedCategory(props) {
                                                 <div className="categories_item_owner_wrapper">
                                                     <img src={blog.owner_image} alt={blog.image} className='categories_item_owner_image' />
                                                     <p className="categories_item_owner_name">{blog.owner}</p>
-                                                    <p className="categories_item_date">{blog.date}</p>
+                                                    <p className="categories_item_date">{getDate(blog.date)}</p>
                                                 </div>
                                             </div>
                                         </div>

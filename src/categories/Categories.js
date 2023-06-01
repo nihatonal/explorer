@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 import { blogData } from '../assets/blogData'
 import bg_image from '../assets/images/wall.jpg';
@@ -6,7 +7,9 @@ import bg_image from '../assets/images/wall.jpg';
 import './Categories.css';
 function Categories(props) {
     var categories_data = [...new Set(blogData.map(function (a) { return a.type; }))];
-
+    const getDate = (date) => {
+        return moment(date).format("MMMM") + ' ' + moment(date).format("DD") + ', ' + moment(date).format("YYYY")
+    }
     return (
         <div className='page-container'
             style={{ backgroundImage: `linear-gradient(145deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(${bg_image})` }}>
@@ -26,7 +29,7 @@ function Categories(props) {
                                                     <div className="categories_item_owner_wrapper">
                                                         <img src={blog.owner_image} alt={blog.image} className='categories_item_owner_image' />
                                                         <p className="categories_item_owner_name">{blog.owner}</p>
-                                                        <p className="categories_item_date">{blog.date}</p>
+                                                        <p className="categories_item_date">{getDate(blog.date)}</p>
                                                     </div>
                                                 </div>
                                             </div>
