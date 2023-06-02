@@ -46,10 +46,24 @@
   text-indent: 30px;
 }
 @media only screen and (max-width: 776px) {
+  .single_blog_item_content {
+    padding: 15px;
+  }
   .single_blog_image_wrapper {
     height: 200px;
   }
+  .single_blog_owner_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
   .single_blog_title {
     font-size: 16px;
+  }
+  .single_blog_owner_name {
+    line-height: 12px;
+    margin: 6px 0;
+  }
+  .single_blog_desc {
+    margin-top: 15px;
   }
 }

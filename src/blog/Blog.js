@@ -3,7 +3,8 @@ import moment from "moment";
 import { NavLink } from 'react-router-dom';
 import { blogData } from '../assets/blogData';
 import bg_image from '../assets/images/bicycle.jpg';
-import LatestPostItem from './components/LatestPostItem';
+import FeaturedItem from './components/FeaturedItem';
+import LatestItem from './components/LatestItem';
 import './Blog.css'
 function Blog(props) {
 
@@ -39,8 +40,24 @@ function Blog(props) {
                             </div>
                         </div>
                     </div>
+                    <div className="blog_featured">
+                        <div className="section_title_wrapper">
+                            <h4 className="section_title blog_section_title">Featured Articles</h4>
+                            <div className="section_title_line"></div>
+                        </div>
+
+                        <div className="blog_featured_items">
+                            {sortedArray.slice(0, 5).map((item) => <FeaturedItem data={item} key={item.id} />)}
+                        </div>
+                    </div>
                     <div className="blog_latest">
-                        {sortedArray.slice(0, 5).map((item) => <LatestPostItem data={item} key={item.id} />)}
+                        <div className="section_title_wrapper">
+                            <h4 className="section_title blog_section_title">Latest Articles</h4>
+                            <div className="section_title_line"></div>
+                        </div>
+                        <div className="blog_latest_items">
+                            {sortedArray.slice(0, 6).map((item) => <LatestItem data={item} key={item.id} />)}
+                        </div>
                     </div>
                 </div>
 

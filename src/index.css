@@ -5,6 +5,7 @@
   --black-color: #000000;
   --color-subtitle: #a9afb3;
   --color-icon: #b59571;
+  --bg_color_section: rgba(181, 149, 113, 0.4);
   --bg-primary: #5b5b5b;
   --bg_secondary: #f1f1f1;
   --primary-font-family: "Montserrat", sans-serif;
@@ -74,6 +75,12 @@ button {
   text-align: center;
   color: var(--primary-color);
 }
+.section_title_wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding-bottom: 20px;
+}
 .section_subtitle {
   font-family: var(--secondary-font-family);
   font-style: normal;
@@ -83,6 +90,12 @@ button {
   text-align: center;
   color: var(--color-subtitle);
   margin: 25px 0 50px;
+}
+.section_title_line {
+  height: 2px;
+  border-radius: 2px;
+  width: 100%;
+  background-color: var(--bg_color_section);
 }
 @media only screen and (max-width: 810px) {
   .section_title {

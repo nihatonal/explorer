@@ -9,7 +9,6 @@ import AboutUs from "./aboutus/AboutUs";
 import Categories from "./categories/Categories";
 import SelectedCategory from "./categories/components/SelectedCategory";
 import SingleBlogItem from "./categories/components/SingleBlogItem";
-import FeaturedStories from "./featured_stories/FeaturedStories";
 import Footer from './shared/footer/Footer'
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
             <Route exact path="/categories/:cname/:owner/:bid" element={<SingleBlogItem />} />
             {/*  <Route exact path="/delivery/:fname/:pname" element={<Store />} /> */}
           </Routes>
-          <FeaturedStories />
           <Footer />
         </ScrollToTop>
       </BrowserRouter>

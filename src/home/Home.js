@@ -3,11 +3,12 @@ import { NavLink } from "react-router-dom";
 import { blogData } from '../assets/blogData';
 import bg_image from '../assets/images/explorer.jpg';
 import BlogItemCard from '../shared/UI/BlogItemCard';
+import FeaturedStories from '../featured_stories/FeaturedStories';
 import './Home.css';
 function Home(props) {
     return (
         <div
-            className='page-container'
+            className='page-container home_page'
             style={{ backgroundImage: `linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bg_image})` }}
         >
             <div className="page-wrapper">
@@ -30,8 +31,8 @@ function Home(props) {
                         </NavLink>
                     </div>
                 </div>
-
             </div>
+            <FeaturedStories />
         </div>
     );
 }

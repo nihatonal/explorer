@@ -1,0 +1,124 @@
+.featured_item_wrapper {
+  font-family: var(--primary-font-family);
+  font-style: normal;
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 6px;
+  position: relative;
+  transition: all 0.3s;
+}
+.featured_item_wrapper:hover {
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+}
+.featured_item_image_wrapper {
+  height: 80px;
+  width: 140px;
+  grid-row: 1 / span 2;
+  align-self: center;
+  overflow: hidden;
+  position: relative;
+}
+.featured_item_img {
+  height: 80px;
+  width: 140px;
+  object-fit: cover;
+  transition: all 0.3s;
+}
+@keyframes type_in {
+  from {
+    width: 10%;
+    background-color: rgba(241, 241, 241, 0.5);
+  }
+  to {
+    width: 100%;
+    background-color: rgba(241, 241, 241, 1);
+  }
+}
+@keyframes type_out {
+  from {
+    width: 100%;
+    background-color: rgba(241, 241, 241, 1);
+  }
+  to {
+    width: 10%;
+    background-color: rgba(241, 241, 241, 0.5);
+  }
+}
+.featured_item_type {
+  color: var(--color-icon);
+  border-radius: 4px 0 0 4px;
+  font-size: 8px;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0 6px;
+  animation-duration: 500ms;
+  animation-name: type_out;
+  animation-fill-mode: forwards;
+}
+.featured_item_wrapper:hover .featured_item_type {
+  animation-duration: 500ms;
+  animation-name: type_in;
+  animation-fill-mode: forwards;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.featured_item_wrapper:hover .featured_item_img {
+  transform: scale(1.4);
+}
+.featured_item_title {
+  font-size: 12px;
+  grid-column: 2 / span 3;
+  text-align: left;
+  align-self: flex-end;
+}
+@media only screen and (max-width: 776px) {
+  .featured_item_image_wrapper {
+    grid-row: 1 / span 3;
+  }
+  .featured_item_title {
+    font-size: 12px;
+    align-self: flex-start;
+  }
+}
+.featured_item_owner {
+  font-size: 10px;
+  text-align: left;
+  align-self: flex-start;
+}
+.featured_item_date {
+  font-size: 10px;
+  grid-column: 3;
+  text-align: right;
+  align-self: flex-start;
+}
+@media only screen and (max-width: 776px) {
+  .featured_item_owner,
+  .featured_item_date {
+    font-size: 12px;
+    align-self: flex-end;
+  }
+}
+.featured_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 99;
+}
+
+@media only screen and (max-width: 776px) {
+  .featured_item_line {
+    display: inline-block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-subtitle);
+    grid-column: 2 / span 2;
+    align-self: flex-end;
+  }
+}
