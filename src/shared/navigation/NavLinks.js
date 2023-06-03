@@ -28,20 +28,21 @@ function NavLinks(props) {
                 className={({ isActive }) =>
                     isActive ? "nav-item active-nav-item" : "nav-item"
                 }
+                to="/newsletters"
+                onClick={props.closeDrawer}
+            >
+                Newsletters
+            </NavLink>
+            <NavLink
+                className={({ isActive }) =>
+                    isActive ? "nav-item active-nav-item" : "nav-item"
+                }
                 to="/categories"
                 onClick={props.closeDrawer}
             >
                 Categories
             </NavLink>
-            {/* <NavLink
-                className={({ isActive }) =>
-                    isActive ? "nav-item active-nav-item" : "nav-item"
-                }
-                to="/pick_category"
-                onClick={props.closeDrawer}
-            >
-                Pick category
-            </NavLink> */}
+            
             <NavLink
                 className={({ isActive }) =>
                     isActive ? "nav-item active-nav-item" : "nav-item"

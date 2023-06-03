@@ -5,6 +5,8 @@
   --black-color: #000000;
   --color-subtitle: #a9afb3;
   --color-icon: #b59571;
+  --color-button-disabled: rgba(236, 153, 58, 0.5);
+  --color-button: rgba(236, 153, 58, 1);
   --bg_color_section: rgba(181, 149, 113, 0.4);
   --bg-primary: #5b5b5b;
   --bg_secondary: #f1f1f1;
