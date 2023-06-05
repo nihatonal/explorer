@@ -5,6 +5,7 @@
   align-self: center;
   padding: 15px;
   background-color: #fff;
+  position: relative;
 }
 .newsletter_inbox_header {
   border-bottom: 1px solid var(--color-subtitle);
@@ -34,7 +35,7 @@
 .newsletter_inbox_items {
   display: flex;
   flex-direction: column;
-  /* row-gap: 8px; */
+  row-gap: 6px;
   margin-top: 10px;
 }
 .newsletter_inbox_item {
@@ -49,29 +50,114 @@
   display: grid;
   grid-template-columns: 14px 14px 1fr;
   column-gap: 8px;
-  row-gap: 4px;
   padding-left: 10px;
   position: relative;
+  
+}
+@keyframes inbox_in_1 {
+  from {
+    right: 0px;
+    opacity: 0;
+  }
+  to {
+    right: 45px;
+    opacity: 1;
+  }
+}
+@keyframes inbox_in_2 {
+  from {
+    right: 0px;
+    opacity: 0;
+  }
+  to {
+    right: 35px;
+    opacity: 1;
+  }
+}
+@keyframes inbox_in_3 {
+  from {
+    right: 0px;
+    opacity: 0;
+  }
+  to {
+    right: 60px;
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 767px) {
+  @keyframes inbox_in_1 {
+    from {
+      right: 0px;
+      opacity: 0;
+    }
+    to {
+      right: 20px;
+      opacity: 1;
+    }
+  }
+  @keyframes inbox_in_2 {
+    from {
+      right: 0px;
+      opacity: 0;
+    }
+    to {
+      right: 25px;
+      opacity: 1;
+    }
+  }
+  @keyframes inbox_in_3 {
+    from {
+      right: 0px;
+      opacity: 0;
+    }
+    to {
+      right: 30px;
+      opacity: 1;
+    }
+  }
 }
 .newsletter_inbox_item:nth-last-child(3) {
-  left: -60px;
+  animation-name: inbox_in_3;
+  animation-delay: 0.25s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .newsletter_inbox_item:nth-last-child(5) {
-  left: -45px;
+  animation-name: inbox_in_2;
+  animation-delay: 0.25s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 .newsletter_inbox_item:nth-last-child(1) {
-  left: -30px;
+  animation-name: inbox_in_1;
+  animation-delay: 0.25s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
-
+.newsletter_inbox_item .newsletter_inbox_item_link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  background-color: transparent;
+  left: 0;
+  top: 0;
+}
 .newsletter_inbox_item h4 {
   font-weight: 400;
   font-size: 12px;
-  align-self: flex-end;
+  align-self: center;
 }
 .newsletter_inbox_item svg {
   font-size: 18px;
   color: var(--color-button);
-  grid-row: 1 / span 2;
   align-self: center;
 }
 .newsletter_inbox_item span {
@@ -80,7 +166,6 @@
   display: inline-block;
   border-radius: 4px;
   border: 1px solid #cdcdcd;
-  grid-row: 1 / span 2;
   align-self: center;
 }
 .newsletter_inbox_item .newsletter_inbox_fake {
@@ -92,3 +177,75 @@
 /* .newsletter_inbox_item span:nth-last-child() {
   width: 150px;
 } */
+.newsletter_inbox_phone_wrapper {
+  width: 200px;
+  height: 350px;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 45px;
+  border-radius: 15px;
+  transform: rotate(10deg) scale(1.4);
+  z-index: 12;
+}
+.newsletter_inbox_item_image_link {
+  display: block;
+  width: 150px;
+  height: 250px;
+  position: absolute;
+  z-index: 5;
+  background-color: transparent;
+  left: 25px;
+  top: 50px;
+}
+.newsletter_inbox_phone_wrapper img {
+  border-radius: 16px;
+}
+.newsletter_inbox_phone_bg {
+  width: 147px;
+  height: 300px;
+  background-color: #fff;
+  position: absolute;
+  top: 6px;
+  left: 27px;
+  border-radius: 10px;
+}
+.newsletter_inbox_phone_content {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+  opacity: 0;
+  transition: all 500ms;
+}
+.newsletter_inbox_phone_content .logo_wrapper {
+  transform: scale(0.5);
+}
+.newsletter_inbox_phone_title {
+  font-family: var(--secondary-font-family);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 12px;
+  font-size: 8px;
+  width: 130px;
+  margin: 6px 0;
+}
+.newsletter_inbox_phone_content img {
+  width: 130px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 0;
+}
+.newsletter_inbox_phone_desc {
+  font-family: var(--secondary-font-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 7px;
+  text-align: justify;
+  text-indent: 15px;
+  line-height: 10px;
+  width: 130px;
+}
