@@ -3,12 +3,15 @@ import NavLinks from './NavLinks';
 import Logo from '../UI/Logo';
 import Hamburger from './Hamburger';
 import SideNavBar from './SideNavBar';
+import Modal from '../UI/Modal'
+import SignUp from '../../user/components/SignUp';
 
 
 import './MainNavigation.css';
 function MainNavigation(props) {
     const [scrolled, setScrolled] = useState(false);
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
 
     const openDrawerHandler = () => {
         setDrawerIsOpen(!drawerIsOpen);
@@ -16,6 +19,9 @@ function MainNavigation(props) {
     const closeDrawerHandler = () => {
         setDrawerIsOpen(false);
     };
+    const openSignUpModal = () => {
+        setOpenModal(!openModal)
+    }
     // var categories_data = [...new Set(blogData.map(function (a) { return a.type; }))];
 
     // const categories = <div className='dropmenu_wrapper'>
@@ -51,14 +57,14 @@ function MainNavigation(props) {
             <div className={scrolled ? "main_header main_header_fixed" : 'main_header'}>
                 {/* <ReactSVG src={Logo} /> */}
                 <Logo />
-                <NavLinks />
+                <NavLinks openSignUp={openSignUpModal} />
                 <Hamburger
                     show={drawerIsOpen}
                     onClick={openDrawerHandler}
                 />
             </div>
 
-
+            <Modal showModal={openModal} closeModal={() => openSignUpModal(false)} ><SignUp /></Modal>
 
         </div>
     );

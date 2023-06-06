@@ -56,8 +56,8 @@ function NavLinks(props) {
                 className={({ isActive }) =>
                     isActive ? "nav-item active-nav-item" : "nav-item"
                 }
-                to="/signup"
-                onClick={props.closeDrawer}
+                to=""
+                onClick={props.openSignUp}
             >
                 Sign Up
             </NavLink>
