@@ -16,11 +16,11 @@ function Categories(props) {
             <div className="page-wrapper">
                 <div className="categories_wrapper">
                     {categories_data.map((item) =>
-                        <div className="categories_group_wrapper">
+                        <div className="categories_group_wrapper" key={item}>
                             <h3 className="categories_items_title">{item}</h3>
                             <div className="categories_items_wrapper">
                                 {blogData.filter((el) => el.type === item).map((blog) =>
-                                    <NavLink to={`/categories/${item.toLowerCase()}/${blog.owner}/${blog.id}`} className="categories_item_container">
+                                    <NavLink to={`/categories/${item.toLowerCase()}/${blog.owner}/${blog.id}`} className="categories_item_container" key={blog.id}>
                                         <div className="categories_item_wrapper">
                                             <div className="categories_item_image_wrapper"
                                                 style={{ backgroundImage: `url(${blog.image})` }}

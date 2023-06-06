@@ -1,0 +1,12 @@
+{
+    "env": {
+        "DB_USER": "chuck",
+        "DB_PASSWORD": "nht2575",
+        "DB_NAME": "explorer",
+        "JWT_KEY": "supersecret",
+        "EMAIL_ADDRESS": "onalnihat@outlook.com",
+        "EMAIL_PASSWORD": "nihat2575",
+        "RESET_EMAIL": "https://maria-server.onrender.com/api",
+        "PORT":5000
+    }
+}

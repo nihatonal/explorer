@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ReactSVG } from 'react-svg'
 import NavLinks from './NavLinks';
-// import Logo from '../../assets/images/logo.svg';
-import Logo from '../UI/Logo'
+import Logo from '../UI/Logo';
+import Hamburger from './Hamburger';
 import SideNavBar from './SideNavBar';
 
 
@@ -39,22 +38,26 @@ function MainNavigation(props) {
 
 
     return (
-        <div className='header'
-            style={scrolled ? { top: '0' } : { top: '40px' }}>
-            {/* <SideNavBar
+        <div className={scrolled ? 'header header_fixed' : 'header'}>
+            <SideNavBar
                 openDrawerHandler={openDrawerHandler}
                 closeDrawer={closeDrawerHandler}
                 drawerIsOpen={drawerIsOpen}
                 onClick={() => {
                     openDrawerHandler(false)
                 }}
-                className={cart.booking ? 'hide-sidebar' : null}
-            /> */}
-            <div className={scrolled ? "main_header header_fixed" : 'main_header'}>
+                className={'hide-sidebar'}
+            />
+            <div className={scrolled ? "main_header main_header_fixed" : 'main_header'}>
                 {/* <ReactSVG src={Logo} /> */}
-                <Logo/>
+                <Logo />
                 <NavLinks />
+                <Hamburger
+                    show={drawerIsOpen}
+                    onClick={openDrawerHandler}
+                />
             </div>
+
 
 
         </div>

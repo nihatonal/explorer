@@ -1,0 +1,59 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 40px;
+  transition: all 0.3s;
+  z-index: 90;
+}
+.header_fixed {
+  top: 0;
+}
+.main_header {
+  width: 1000px;
+  margin: 0 auto;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main_header_fixed {
+  /* height: 120px; */
+  background-image: linear-gradient(
+      145deg,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../../assets/images/newsletters.jpg");
+  background-position: center;
+  background-size: cover;
+  /* justify-content: space-evenly; */
+}
+
+@media only screen and (max-width: 1000px) {
+  .header {
+    width: 100%;
+    top: 0;
+  }
+  .header_fixed {
+    top: 0;
+  }
+  .main_header {
+    height: 90px;
+    width: 100%;
+    background-image: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),
+      url("../../assets/images/newsletters.jpg");
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+  }
+}
+.hide-navlinks {
+  right: -100%;
+}
+
