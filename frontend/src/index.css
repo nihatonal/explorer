@@ -49,7 +49,7 @@ button {
   background-size: cover;
   display: flex;
   justify-content: center;
-  padding: 200px 0 50px;
+  padding: 140px 0 50px;
 }
 @media only screen and (max-width: 767px) {
   .page-container {

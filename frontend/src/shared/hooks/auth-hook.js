@@ -1,26 +1,24 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from 'react';
+
 let logoutTimer;
 
 export const useAuth = () => {
   const [token, setToken] = useState(false);
   const [tokenExpirationDate, setTokenExpirationDate] = useState();
   const [userId, setUserId] = useState(false);
-  const [user, setUser] = useState(false);
 
-  const login = useCallback((user, uid, token, expirationDate) => {
+  const login = useCallback((uid, token, expirationDate) => {
     setToken(token);
     setUserId(uid);
-    setUser(user);
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate);
     localStorage.setItem(
-      "userData",
+      'userData',
       JSON.stringify({
-        user:user,
         userId: uid,
         token: token,
-        expiration: tokenExpirationDate.toISOString(),
+        expiration: tokenExpirationDate.toISOString()
       })
     );
   }, []);
@@ -29,15 +27,12 @@ export const useAuth = () => {
     setToken(null);
     setTokenExpirationDate(null);
     setUserId(null);
-    setUser(null);
-
-    localStorage.removeItem("userData");
+    localStorage.removeItem('userData');
   }, []);
 
   useEffect(() => {
     if (token && tokenExpirationDate) {
-      const remainingTime =
-        tokenExpirationDate.getTime() - new Date().getTime();
+      const remainingTime = tokenExpirationDate.getTime() - new Date().getTime();
       logoutTimer = setTimeout(logout, remainingTime);
     } else {
       clearTimeout(logoutTimer);
@@ -45,20 +40,15 @@ export const useAuth = () => {
   }, [token, logout, tokenExpirationDate]);
 
   useEffect(() => {
-    const storedData = JSON.parse(localStorage.getItem("userData"));
+    const storedData = JSON.parse(localStorage.getItem('userData'));
     if (
       storedData &&
       storedData.token &&
       new Date(storedData.expiration) > new Date()
     ) {
-      login(
-        storedData.user,
-        storedData.userId,
-        storedData.token,
-        new Date(storedData.expiration)
-      );
+      login(storedData.userId, storedData.token, new Date(storedData.expiration));
     }
   }, [login]);
 
-  return { token, login, logout, userId, user };
+  return { token, login, logout, userId };
 };

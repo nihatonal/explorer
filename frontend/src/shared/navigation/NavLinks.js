@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom";
 
+import { AuthContext } from '../../shared/context/auth-context';
+import { useHttpClient } from '../../shared/hooks/http-hook';
+import Avatar from '../UI/Avatar';
 import './NavLinks.css';
 function NavLinks(props) {
+    const auth = useContext(AuthContext);
+    const { isLoading, error, sendRequest, clearError } = useHttpClient();
+    const [loadedUser, setLoadedUser] = useState();
+
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const responseData = await sendRequest(
+                    `http://localhost:5000/api/users/`
+                );
+                setLoadedUser(responseData.users.filter(user => user.id === auth.userId)[0]);
+            } catch (err) { }
+        };
+        fetchUsers();
+
+    }, [sendRequest, auth.userId]);
     return (
         <div className={`navbar ${props.className}`} style={props.style}>
             {props.children}
@@ -52,7 +71,7 @@ function NavLinks(props) {
             >
                 About Us
             </NavLink>
-            <NavLink
+            {!auth.isLoggedIn ? <NavLink
                 className={({ isActive }) =>
                     isActive ? "nav-item active-nav-item" : "nav-item"
                 }
@@ -60,7 +79,7 @@ function NavLinks(props) {
                 onClick={props.openSignUp}
             >
                 Sign Up
-            </NavLink>
+            </NavLink> : loadedUser && <Avatar image={`http://localhost:5000/${loadedUser.image}`} alt={loadedUser.name} />}
         </div>
     );
 }

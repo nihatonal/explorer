@@ -20,6 +20,11 @@ function Blog(props) {
         >
             <div className="page-wrapper">
                 <div className="blog_wrapper">
+                    {/* {isLoading && (
+                        <div className="center">
+                            <LoadingSpinner />
+                        </div>
+                    )} */}
                     <div className="blog_left_wrapper">
                         <div className="single_blog_item_wrapper">
                             <div className="single_blog_image_wrapper"

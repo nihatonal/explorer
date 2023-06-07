@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import NavLinks from './NavLinks';
 import Logo from '../UI/Logo';
 import Hamburger from './Hamburger';
 import SideNavBar from './SideNavBar';
 import Modal from '../UI/Modal'
 import SignUp from '../../user/components/SignUp';
-
+import { AuthContext } from '../../shared/context/auth-context';
 
 import './MainNavigation.css';
 function MainNavigation(props) {
+    const auth = useContext(AuthContext);
     const [scrolled, setScrolled] = useState(false);
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
-
     const openDrawerHandler = () => {
         setDrawerIsOpen(!drawerIsOpen);
     };
@@ -41,6 +41,11 @@ function MainNavigation(props) {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+    useEffect(() => {
+        if (auth.isLoggedIn === true) {
+            setOpenModal(false)
+        }
+    }, [auth.isLoggedIn]);
 
 
     return (

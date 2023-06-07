@@ -21,6 +21,11 @@
 .show_modal {
   top: -160px;
 }
+@media only screen and (max-width: 1000px) {
+  .show_modal {
+    top: -100px;
+  }
+}
 
 .modal_close_btn {
   color: #fff;

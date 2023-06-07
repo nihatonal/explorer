@@ -114,13 +114,13 @@ const signup = async (req, res, next) => {
     surname,
     email,
     password: hashedPassword,
-    // image: " ",
-    resetPasswordToken: "",
-    resetPasswordExpires: "",
-    cars: [],
-    places: [],
+    image: req.file.path,
+    // resetPasswordToken: "",
+    // resetPasswordExpires: "",
+    posts: [],
   });
-  console.log(createdUser);
+  // console.log(req.file.path);
+  // console.log(createdUser);
   try {
     await createdUser.save();
   } catch (err) {
@@ -247,9 +247,10 @@ const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   let existingUser;
-
+ 
   try {
     existingUser = await User.findOne({ email: email });
+    
   } catch (err) {
     const error = new HttpError(
       "Logging in failed, please try again later.",
@@ -269,6 +270,7 @@ const login = async (req, res, next) => {
   let isValidPassword = false;
   try {
     isValidPassword = await bcrypt.compare(password, existingUser.password);
+    
   } catch (err) {
     const error = new HttpError(
       "Could not log you in, please check your credentials and try again.",
@@ -292,6 +294,7 @@ const login = async (req, res, next) => {
       `${process.env.JWT_KEY}`,
       { expiresIn: "1h" }
     );
+    
   } catch (err) {
     const error = new HttpError(
       "Logging in failed, please try again later.",
@@ -299,13 +302,13 @@ const login = async (req, res, next) => {
     );
     return next(error);
   }
-
   res.json({
     user: existingUser,
     userId: existingUser.id,
     email: existingUser.email,
     token: token,
   });
+
 };
 
 const uploadImage = async (req, res, next) => {

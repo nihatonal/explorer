@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from '../../shared/components/formElements/Input'
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -9,23 +9,18 @@ import {
     VALIDATOR_PASSWORD,
     VALIDATOR_PASSWORD_CONFIRM,
 } from "../../shared/util/validators";
-
+import ImageUpload from "../../shared/components/formElements/ImageUpload";
+import { AuthContext } from '../../shared/context/auth-context';
 import { useForm } from "../../shared/hooks/form-hook";
 
 import './SignUp.css'
 function SignUp(props) {
     const navigate = useNavigate();
+    const auth = useContext(AuthContext);
+    const [isLoginMode, setIsLoginMode] = useState(true);
     const { isLoading, error, sendRequest } = useHttpClient();
-    const [formState, inputHandler] = useForm(
+    const [formState, inputHandler, setFormData] = useForm(
         {
-            name: {
-                value: "",
-                isValid: false,
-            },
-            surname: {
-                value: "",
-                isValid: false,
-            },
             email: {
                 value: "",
                 isValid: false,
@@ -34,116 +29,160 @@ function SignUp(props) {
                 value: "",
                 isValid: false,
             },
-            password_confirm: {
-                value: "",
-                isValid: false,
-            },
         },
         false
     );
-    const [active, setActive] = useState(true)
-
-    const signupFormHandler = async (e) => {
-        e.preventDefault();
-        //console.log(formState.inputs)
-        try {
-            const responseData = await sendRequest(
-                "http://localhost:5000/api/users/signup",
-                "POST",
-                JSON.stringify({
-                    // name: formState.inputs.name.value,
-                    // nickname: formState.inputs.nickname.value,
-                    // birthdate: formState.inputs.birthdate.value,
-                    // email: formState.inputs.email.value,
-                    // phone: formState.inputs.phone.value,
-                    // password: formState.inputs.password.value,
-                    name: 'deneme',
-                    surname: 'deneme',
-                    email: 'deneme@gmail.asd',
-                    password: 'deneme',
-                }),
+    const switchModeHandler = () => {
+        if (!isLoginMode) {
+            setFormData(
                 {
-                    "Content-Type": "application/json",
-                }
+                    ...formState.inputs,
+                    name: undefined,
+                    image: undefined
+                },
+                formState.inputs.email.isValid && formState.inputs.password.isValid
             );
-            console.log(responseData)
-            // SignUp.userId = responseData.userId;
-            // navigate("/userphoto");
-        } catch (err) {
-            // SignUp.error = err.message;
-            // console.log(SignUp.error);
+        } else {
+            setFormData(
+                {
+                    ...formState.inputs,
+                    name: {
+                        value: '',
+                        isValid: false
+                    },
+                    surname: {
+                        value: '',
+                        isValid: false
+                    },
+                    password_confirm: {
+                        value: '',
+                        isValid: false
+                    },
+                    image: {
+                        value: null,
+                        isValid: false
+                    }
+                },
+                false
+            );
         }
-
+        setIsLoginMode(prevMode => !prevMode);
     };
+
+    const authSubmitHandler = async event => {
+        event.preventDefault();
+        
+        if (!isLoginMode) {
+            try {
+                const responseData = await sendRequest(
+                    "http://localhost:5000/api/users/login",
+                    'POST',
+                    JSON.stringify({
+                        email: formState.inputs.email.value,
+                        password: formState.inputs.password.value
+                    }),
+                    {
+                        'Content-Type': 'application/json'
+                    }
+                );
+
+                auth.login(responseData.userId, responseData.token);
+            } catch (err) { }
+        } else {
+            try {
+                const formData = new FormData();
+                formData.append('email', formState.inputs.email.value);
+                formData.append('name', formState.inputs.name.value);
+                formData.append('surname', formState.inputs.surname.value);
+                formData.append('password', formState.inputs.password.value);
+                formData.append('image', formState.inputs.image.value);
+                const responseData = await sendRequest(
+                    'http://localhost:5000/api/users/signup',
+                    'POST',
+                    formData
+                );
+
+                auth.login(responseData.userId, responseData.token);
+            } catch (err) { }
+        }
+    };
+
     return (
         <div className="signup_wrapper">
             <div className="signup_header">
                 <button className="sign_up_header_btn"
-                    style={active ? { backgroundColor: '#cbe7ff', color: 'var(--color-button)' } : null}
-                    onClick={() => setActive(true)}
+                    style={isLoginMode ? { backgroundColor: '#cbe7ff', color: 'var(--color-button)' } : null}
+                    onClick={switchModeHandler}
                 >Sign Up</button>
                 <button className="sign_up_header_btn"
-                    style={!active ? { backgroundColor: '#cbe7ff', color: 'var(--color-button)' } : null}
-                    onClick={() => setActive(false)}
+                    style={!isLoginMode ? { backgroundColor: '#cbe7ff', color: 'var(--color-button)' } : null}
+                    onClick={switchModeHandler}
                 >Sign In</button>
             </div>
-            <Input
-                id="name"
-                element="input"
-                type="name"
-                label='Name'
-                placeholder="Please write your name"
-                validators={[VALIDATOR_REQUIRE()]}
-                onInput={inputHandler}
-                initialValue={formState.inputs.name.value}
-                initialValid={formState.inputs.name.isValid}
-            />
-            <Input
-                id="surname"
-                element="input"
-                type="name"
-                label='Surname'
-                placeholder="Please write your surname"
-                validators={[VALIDATOR_REQUIRE()]}
-                onInput={inputHandler}
-                initialValue={formState.inputs.surname.value}
-                initialValid={formState.inputs.surname.isValid}
-            />
-            <Input
-                id="email"
-                element="input"
-                type="name"
-                label='Email'
-                placeholder="Please write your email"
-                validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
-                onInput={inputHandler}
-                initialValue={formState.inputs.email.value}
-                initialValid={formState.inputs.email.isValid}
-            />
-            <Input
-                id="password"
-                element="input"
-                type="name"
-                label='Password'
-                placeholder="Please write your name"
-                validators={[VALIDATOR_REQUIRE(),
-                VALIDATOR_PASSWORD()]}
-                onInput={inputHandler}
-                initialValue={formState.inputs.password.value}
-                initialValid={formState.inputs.password.isValid}
-            />
-            <Input
-                id="password_confirm"
-                element="input"
-                type="name"
-                label='Confirm Password'
-                placeholder="Please write your name"
-                validators={[VALIDATOR_REQUIRE(),
-                VALIDATOR_PASSWORD_CONFIRM(formState.inputs.password.value)]}
-                onInput={inputHandler}
-                initialValue={formState.inputs.password_confirm.value}
-                initialValid={formState.inputs.password_confirm.isValid}
-            />
+            <form onSubmit={authSubmitHandler} className="sign_up_inputs_wrapper">
+                {isLoginMode && <ImageUpload
+                    center
+                    id="image"
+                    onInput={inputHandler}
+                    errorText="Please provide an image."
+                />}
+                {isLoginMode && <Input
+                    id="name"
+                    element="input"
+                    type="text"
+                    label='Name'
+                    placeholder="Please write your name"
+                    validators={[VALIDATOR_REQUIRE()]}
+                    onInput={inputHandler}
+
+                />}
+                {isLoginMode && <Input
+                    id="surname"
+                    element="input"
+                    type="text"
+                    label='Surname'
+                    placeholder="Please write your surname"
+                    validators={[VALIDATOR_REQUIRE()]}
+                    onInput={inputHandler}
+
+                />}
+                <Input
+                    id="email"
+                    element="input"
+                    type="name"
+                    label='Email'
+                    placeholder="Please write your email"
+                    validators={[VALIDATOR_REQUIRE(), VALIDATOR_EMAIL()]}
+                    onInput={inputHandler}
+
+                />
+                <Input
+                    id="password"
+                    element="input"
+                    type="text"
+                    label='Password'
+                    placeholder="Please write your name"
+                    validators={[VALIDATOR_REQUIRE(),
+                    VALIDATOR_PASSWORD()]}
+                    onInput={inputHandler}
+
+                />
+                {isLoginMode && <Input
+                    id="password_confirm"
+                    element="input"
+                    type="text"
+                    label='Confirm Password'
+                    placeholder="Please write your name"
+                    validators={[VALIDATOR_REQUIRE(),
+                    VALIDATOR_PASSWORD_CONFIRM(formState.inputs.password.value)]}
+                    onInput={inputHandler}
+
+                />}
+
+                <button type="submit"
+                    // disabled={!formState.isValid} 
+                    className="signup_button">{!isLoginMode ? 'Sign In' : 'Sign Up'}</button>
+            </form>
         </div>
     );
 }

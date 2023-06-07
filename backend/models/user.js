@@ -11,7 +11,7 @@ const userSchema = new Schema({
   password: { type: String, required: true, minlenght: 8 },
   // resetPasswordToken: { type: String, required: false },
   // resetPasswordExpires: { type: String, required: false },
-  // image: { type: String, required: true },
+  image: { type: String, required: true },
   places: [{ type: mongoose.Types.ObjectId, required: true, ref: "Place" }], // cars and users relation
 });
 
