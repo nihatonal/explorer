@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import Modal from './Modal'
 
 import './Avatar.css';
 function Avatar(props) {
-    const [showDrop, setShowDrop] = useState(false)
+    const [showDrop, setShowDrop] = useState(false);
     return (
         <div className={`avatar ${props.className}`}
             style={props.style}
@@ -15,15 +15,16 @@ function Avatar(props) {
                 alt={props.alt}
                 style={{ width: props.width, height: props.width }}
             />
-            <div className="avatar_drop_menu"
-                style={showDrop ? { top: '0' } : null}
-            >
-                <NavLink className="avatar_drop_menu_item" to='/'>Profile</NavLink>
-                <NavLink className="avatar_drop_menu_item" to='/'>My Articles</NavLink>
-                <button className="avatar_drop_menu_item">Add Article</button>
+            <div className={showDrop ? "avatar_drop_menu show_drop_menu" : "avatar_drop_menu"}
 
+            >
+                <NavLink className="avatar_drop_menu_item" to='/'>My Profile</NavLink>
+                <NavLink className="avatar_drop_menu_item" to='/'>My Articles</NavLink>
+                <button onClick={props.showArticleModal} className="avatar_drop_menu_item">Add Article</button>
+                <button onClick={props.logOutHandler} className="avatar_drop_menu_item">Log out</button>
             </div>
-        </div>
+            <Modal showModal={props.articleModal} closeModal={props.closeArticleModal}></Modal>
+        </div >
     );
 }
 

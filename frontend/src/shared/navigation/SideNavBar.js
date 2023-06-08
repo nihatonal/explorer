@@ -12,7 +12,14 @@ function SideNavBar(props) {
                 style={props.drawerIsOpen ? { top: 0 } : null}
                 className='sidebar-navlinks'
                 onClick={props.onClick}
-                closeDrawer={props.closeDrawer} />
+                closeDrawer={props.closeDrawer}
+                openSignUp={props.openSignUp}
+                articleModal={props.articleModal}
+                showArticleModal={props.showArticleModal}
+                closeArticleModal={props.closeArticleModal}
+                logOutHandler={props.logOutHandler}
+
+            />
         </div>
     );
 }

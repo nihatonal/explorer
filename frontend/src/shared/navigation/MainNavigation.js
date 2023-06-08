@@ -13,6 +13,7 @@ function MainNavigation(props) {
     const [scrolled, setScrolled] = useState(false);
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
+    const [articleModal, setArticleModal] = useState(false);
     const openDrawerHandler = () => {
         setDrawerIsOpen(!drawerIsOpen);
     };
@@ -56,20 +57,28 @@ function MainNavigation(props) {
                 drawerIsOpen={drawerIsOpen}
                 onClick={() => {
                     openDrawerHandler(false)
+                    setOpenModal(false)
                 }}
+                openSignUp={openSignUpModal}
+                articleModal={articleModal}
+                showArticleModal={() => {
+                    setArticleModal(true);
+                }}
+                logOutHandler={() => auth.logout()}
+                closeArticleModal={() => setArticleModal(false)}
                 className={'hide-sidebar'}
             />
             <div className={scrolled ? "main_header main_header_fixed" : 'main_header'}>
                 {/* <ReactSVG src={Logo} /> */}
                 <Logo />
-                <NavLinks openSignUp={openSignUpModal} />
+                <NavLinks logOutHandler={() => auth.logout()} openSignUp={openSignUpModal} articleModal={articleModal} showArticleModal={() => setArticleModal(true)} closeArticleModal={() => setArticleModal(false)} />
                 <Hamburger
                     show={drawerIsOpen}
                     onClick={openDrawerHandler}
                 />
             </div>
 
-            <Modal showModal={openModal} closeModal={() => openSignUpModal(false)} ><SignUp /></Modal>
+            <Modal showModal={openModal} closeModal={() => { openSignUpModal(false) }} ><SignUp /></Modal>
 
         </div>
     );

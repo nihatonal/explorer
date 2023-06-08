@@ -5,7 +5,6 @@
   background-color: #f0f8ff;
   border-radius: 10px;
   box-shadow: 0 0 25px rgba(240, 248, 255, 0.5);
-  padding: 50px 25px;
   display: flex;
   flex-direction: column;
 }
@@ -18,7 +17,10 @@
   background-color: transparent;
   cursor: pointer;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 0 6px 0 0;
+}
+.sign_up_header_btn:nth-last-child(2) {
+  border-radius: 6px 0 0 0;
 }
 .sign_up_header_btn:hover {
   background-color: #cbe7ff;
@@ -29,7 +31,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  margin: 10px 0;
+  margin-top: 10px;
+}
+.signup_wrapper .form-control {
+  padding: 0 15px;
 }
 .signup_wrapper label {
   font-family: var(--primary-font-family);
@@ -66,7 +71,7 @@
   color: var(--color_primary);
   background-color: #0bb7bd;
   color: #fff;
-  border-radius: 6px;
+  border-radius: 0 0 6px 6px;
   cursor: pointer;
   transition: all 0.3s;
   outline: none;
@@ -77,6 +82,8 @@
 
 .signup_wrapper .image-upload__preview {
   border-radius: 100%;
+  width: 8rem;
+  height: 8rem;
 }
 .signup_wrapper .image-upload__preview img {
   border-radius: 100%;

@@ -71,15 +71,18 @@ function NavLinks(props) {
             >
                 About Us
             </NavLink>
-            {!auth.isLoggedIn ? <NavLink
-                className={({ isActive }) =>
-                    isActive ? "nav-item active-nav-item" : "nav-item"
-                }
-                to=""
+            {!auth.isLoggedIn ? <button
+                className={"nav-item nav-button"}
                 onClick={props.openSignUp}
             >
-                Sign Up
-            </NavLink> : loadedUser && <Avatar image={`http://localhost:5000/${loadedUser.image}`} alt={loadedUser.name} />}
+                Sign In
+            </button> : loadedUser && <Avatar
+                image={`http://localhost:5000/${loadedUser.image}`} alt={loadedUser.name}
+                articleModal={props.articleModal}
+                showArticleModal={props.showArticleModal}
+                closeArticleModal={props.closeArticleModal}
+                logOutHandler={props.logOutHandler}
+            />}
         </div>
     );
 }

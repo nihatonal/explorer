@@ -12,12 +12,13 @@ import {
 import ImageUpload from "../../shared/components/formElements/ImageUpload";
 import { AuthContext } from '../../shared/context/auth-context';
 import { useForm } from "../../shared/hooks/form-hook";
+import LoadingSpinner from '../../shared/UI/LoadingSpinner'
 
 import './SignUp.css'
 function SignUp(props) {
     const navigate = useNavigate();
     const auth = useContext(AuthContext);
-    const [isLoginMode, setIsLoginMode] = useState(true);
+    const [isLoginMode, setIsLoginMode] = useState(false);
     const { isLoading, error, sendRequest } = useHttpClient();
     const [formState, inputHandler, setFormData] = useForm(
         {
@@ -71,7 +72,7 @@ function SignUp(props) {
 
     const authSubmitHandler = async event => {
         event.preventDefault();
-        
+
         if (!isLoginMode) {
             try {
                 const responseData = await sendRequest(
@@ -181,8 +182,14 @@ function SignUp(props) {
 
                 <button type="submit"
                     // disabled={!formState.isValid} 
-                    className="signup_button">{!isLoginMode ? 'Sign In' : 'Sign Up'}</button>
+                    className="signup_button">
+                    {!isLoginMode ? isLoading ? <LoadingSpinner /> : 'Sign In' :
+                        isLoading ? <LoadingSpinner /> : 'Sign Up'}
+
+                </button>
+                {/* !isLoading ? <LoadingSpinner /> */}
             </form>
+
         </div>
     );
 }

@@ -12,19 +12,19 @@
   z-index: 99;
   position: fixed;
   top: -1000px;
+  left: 0;
   transition: all ease-in-out 1s;
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .show_modal {
-  top: -160px;
+  top: 0;
 }
 @media only screen and (max-width: 1000px) {
-  .show_modal {
+  /* .show_modal {
     top: -100px;
-  }
+  } */
 }
 
 .modal_close_btn {
@@ -41,7 +41,7 @@
   color: var(--color-button);
 }
 @media only screen and (max-width: 767px) {
-  .show_modal {
+  /* .show_modal {
     top: -90px;
-  }
+  } */
 }

@@ -27,6 +27,10 @@
   border-bottom: 2px solid rgba(255, 255, 255, 0);
   /* position: relative; */
 }
+.nav-button {
+  background-color: transparent;
+  cursor: pointer;
+}
 .nav-item:hover {
   border-color: rgba(255, 255, 255, 0.3);
 }
