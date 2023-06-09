@@ -6,7 +6,7 @@ import { useAuth } from "./shared/hooks/auth-hook";
 import ScrollToTop from './shared/util/ScrollToTop';
 import MainNavigation from './shared/navigation/MainNavigation'
 import SelectedCategory from "./categories/components/SelectedCategory";
-import SingleBlogItem from "./categories/components/SingleBlogItem";
+
 import Footer from './shared/footer/Footer';
 
 const Main = React.lazy(() => import("./home/Home.js"));
@@ -14,6 +14,7 @@ const Blog = React.lazy(() => import("./blog/Blog.js"));
 const Newsletters = React.lazy(() => import("./newsletters/Newsletters"));
 const AboutUs = React.lazy(() => import("./aboutus/AboutUs"));
 const Categories = React.lazy(() => import("./categories/Categories"));
+const SingleBlogItem = React.lazy(() => import("./blog/components/SingleBlogItem"));
 const SignUp = React.lazy(() => import("./user/components/SignUp.js"));
 
 function App() {

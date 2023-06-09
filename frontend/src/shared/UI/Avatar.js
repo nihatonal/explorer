@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Modal from './Modal'
+import Modal from './Modal';
+import AddPost from '../../posts/AddPost';
 
 import './Avatar.css';
 function Avatar(props) {
@@ -23,7 +24,9 @@ function Avatar(props) {
                 <button onClick={props.showArticleModal} className="avatar_drop_menu_item">Add Article</button>
                 <button onClick={props.logOutHandler} className="avatar_drop_menu_item">Log out</button>
             </div>
-            <Modal showModal={props.articleModal} closeModal={props.closeArticleModal}></Modal>
+            <Modal showModal={props.articleModal} closeModal={props.closeArticleModal} className='modal_article'>
+                <AddPost />
+            </Modal>
         </div >
     );
 }

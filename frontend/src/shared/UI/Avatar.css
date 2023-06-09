@@ -60,6 +60,10 @@
   top: 0;
 }
 
+.avatar .modal_article .modal_close_btn {
+  right: 5%;
+  top: 1%;
+}
 @media only screen and (max-width: 767px) {
   .avatar {
     margin-top: 20px;

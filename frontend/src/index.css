@@ -12,6 +12,7 @@
   --bg_secondary: #f1f1f1;
   --primary-font-family: "Montserrat", sans-serif;
   --secondary-font-family: "Lato", sans-serif;
+  --color_danger: rgb(230, 34, 93);
 }
 
 * {
@@ -29,6 +30,9 @@ a {
 }
 button {
   border: none;
+}
+textarea {
+  resize: none;
 }
 .p-60 {
   padding: 0 60px;
@@ -133,4 +137,26 @@ button {
 }
 .primary_button:hover {
   box-shadow: 0 0 10px #8d4fdb;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--bg_secondary);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--bg-primary);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-icon);
 }

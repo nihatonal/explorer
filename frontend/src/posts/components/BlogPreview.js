@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
-import { useParams } from "react-router-dom";
-import { blogData } from '../../assets/blogData';
 
-import './SingleBlogItem.css'
-function SingleBlogItem(props) {
+
+import './BlogPreview.css'
+function BlogPreview(props) {
+    const bottomRef = useRef(null);
     const [selected, selectedPost] = useState();
-    const selected_post = useParams().bid;
     useEffect(() => {
-        selectedPost(blogData.filter((item) => item.id.toLowerCase() === selected_post)[0])
-    }, [selected_post])
-    //console.log(selected)
+        selectedPost(props.data)
+    }, [props.data])
+
     const getDate = (date) => {
         return moment(date).format("MMMM") + ' ' + moment(date).format("DD") + ', ' + moment(date).format("YYYY")
     }
+
+    const scrollToLastFruit = () => {
+        const lastChildElement = bottomRef.current?.lastElementChild;
+        lastChildElement?.scrollIntoView({ behavior: 'smooth' });
+    };
+    useEffect(() => {
+        scrollToLastFruit();
+    }, [props.text]);
+
 
     return (
         <div className='page-container'
@@ -21,7 +29,7 @@ function SingleBlogItem(props) {
             <div className="page-wrapper">
                 {
                     selected && <div className="single_blog_item_wrapper">
-                        <div className="single_blog_image_wrapper p-60"
+                        <div className="single_blog_image_wrapper"
                             style={{ backgroundImage: `url(${selected.image})` }}
                         >
                         </div>
@@ -32,16 +40,20 @@ function SingleBlogItem(props) {
                                 <p className="single_blog_date">{getDate(selected.date)}</p>
                                 <p className="single_blog_title">{selected.title}</p>
                             </div>
-                            <div className="single_blog_desc">
-                                {selected.text}
-                            </div>
+                            {/* {props.data && <textarea className="single_blog_desc"
+                                style={tx[1] && { height: `${tx[1].scrollHeight}px` }}
+                                value={selected.text}
+                            />} */}
+
+                            <div className="single_blog_desc" ref={bottomRef}>{props.text}</div>
+
                         </div>
                     </div>
 
                 }
             </div>
-        </div>
+        </div >
     );
 }
 
-export default SingleBlogItem;
+export default BlogPreview;
